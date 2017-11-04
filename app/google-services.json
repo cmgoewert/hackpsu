@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "980466170169",
+    "firebase_url": "https://hackpsu-2aabb.firebaseio.com",
+    "project_id": "hackpsu-2aabb",
+    "storage_bucket": "hackpsu-2aabb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980466170169:android:5851accbbc7b1717",
+        "android_client_info": {
+          "package_name": "com.example.cmgoe.hackpsu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980466170169-mujaaehgleq9c1und0aqemcg8ctgr236.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cmgoe.hackpsu",
+            "certificate_hash": "9d190ae86894dd353a07fde9a1d72abcfa4da79c"
+          }
+        },
+        {
+          "client_id": "980466170169-6a4onp8eb1k9a6s02vha83jierp0cm45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu_yu2GzdzeD3Q3OHPbwKgUTgayqge8dE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980466170169-6a4onp8eb1k9a6s02vha83jierp0cm45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
