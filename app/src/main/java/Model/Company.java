@@ -12,6 +12,10 @@ public class Company {
     private String description;
     private String contact;
 
+    public Company() {
+
+    }
+
     public Company (String name, String description, String contact) {
         this.setName(name);
         this.setDescription(description);
