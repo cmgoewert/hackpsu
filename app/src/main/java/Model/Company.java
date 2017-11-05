@@ -11,6 +11,7 @@ public class Company {
     private String name;
     private String description;
     private String contact;
+    private ArrayList<String> tags;
 
     public Company() {
 
@@ -21,6 +22,7 @@ public class Company {
         this.setName(name);
         this.setDescription(description);
         this.setContact(contact);
+        tags = new ArrayList<>();
     }
 
     public ArrayList<Task> getTasks() {
@@ -53,5 +55,13 @@ public class Company {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    public ArrayList<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(ArrayList<String> tags) {
+        this.tags = tags;
     }
 }

@@ -38,7 +38,7 @@ public final class WatsonInteraction {
             con.setRequestMethod("POST");
             OutputStreamWriter osw = new OutputStreamWriter(con.getOutputStream());
             osw.write("{\n"
-                    + "  \"text\": \""+descToSend +"\",\n"
+                    + "  \"text\": \""+description +"\",\n"
                     + "  \"features\": {\n"
                     + "    \"concepts\": {\n"
                     + "      \"emotion\": true,\n"

@@ -1,5 +1,6 @@
 package com.example.cmgoe.hackpsu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,23 +22,16 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
     private Toolbar mActionBarToolbar;
     private TextView infoLabel, titleLabel, descLabel,tagsLabel,actualTagsLabel;
     private ListView mListView;
+    private ArrayList<Company> companies;
+    private FirebaseDB db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        FirebaseDB database = new FirebaseDB();
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                ArrayList<String> concepts = WatsonInteraction.send("random descrption");
-                System.out.println(concepts.toString());
-            }
-        });
-
-        ArrayList<Company> companies = database.read();
-        System.out.println(companies.get(0).getDescription());
+        db = new FirebaseDB();
+        companies = db.getCompanies();
 
         mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mActionBarToolbar);
@@ -52,7 +46,12 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
         descLabel.setText(companies.get(0).getDescription());
 
         actualTagsLabel = (TextView)findViewById(R.id.business_tags);
-        actualTagsLabel.setText("3D Printing, Sample tags, Hacking!");
+        if(companies.get(0).getTags() == null){
+            actualTagsLabel.setText("3D Printing, Sample tags, Hacking!");
+        } else {
+            actualTagsLabel.setText(companies.get(0).getTags().toString());
+        }
+
 
         mListView = (ListView) findViewById(R.id.tasks_list_view);
         TaskListAdapter adapter = new TaskListAdapter(this, companies.get(0).getTasks());
@@ -61,7 +60,10 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
 
         findViewById(R.id.edit_profile).setOnClickListener(this);
 
-        //database.createDummyData();
+       boolean toast = getIntent().getBooleanExtra("toast", false);
+        if(toast){
+
+        }
 
     }
 
@@ -69,8 +71,14 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.edit_profile) {
-
+            Intent intent = new Intent();
+            intent.setClass(this, CompanyEditProfile.class);
+            startActivity(intent);
         }
     }
 
+    public void updateConcepts(ArrayList<String> concepts){
+        companies.get(0).setTags(concepts);
+        db.write(companies);
+    }
 }

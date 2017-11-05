@@ -13,28 +13,31 @@ import java.util.Arrays;
  * Created by cmgoe on 11/4/2017.
  */
 
-public class FirebaseDB {
-    private ArrayList<Company> companies;
-    private DatabaseReference mDatabase;
+public final class FirebaseDB {
+    private static ArrayList<Company> companies;
+    private static DatabaseReference mDatabase;
 
     public FirebaseDB () {
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        createDummyData();
+        read();
+        //createDummyData();
+        //companies = read();
     }
 
 
-    public void write(ArrayList<Company> companies){
-        this.setCompanies(companies);
+    public void write(ArrayList<Company> newComps){
+        companies = newComps;
         mDatabase.child("companies").setValue(companies);
     }
 
-    public ArrayList<Company> read(){
+    public static ArrayList<Company> read(){
         DatabaseReference companyRef = mDatabase.child("companies");
-        companyRef.addValueEventListener(new ValueEventListener() {
+        companyRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
                 ArrayList<Company> readComp = new ArrayList<>();
                 for(DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()){
+                    System.out.println("reading child companys");
                     Company company = noteDataSnapshot.getValue(Company.class);
                     readComp.add(company);
                 }
@@ -42,7 +45,23 @@ public class FirebaseDB {
             }
             @Override
             public void onCancelled(DatabaseError error){
-
+                System.out.println("there was a db error");
+            }
+        });
+        companyRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot){
+                ArrayList<Company> readComp = new ArrayList<>();
+                for(DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()){
+                    System.out.println("reading child companys");
+                    Company company = noteDataSnapshot.getValue(Company.class);
+                    readComp.add(company);
+                }
+                setCompanies(readComp);
+            }
+            @Override
+            public void onCancelled(DatabaseError error){
+                System.out.println("there was a db error");
             }
         });
         return getCompanies();
@@ -50,7 +69,7 @@ public class FirebaseDB {
 
     public void createDummyData(){
         setCompanies(new ArrayList<Company>());
-        getCompanies().add(new Company("Company1", "This is the first demo company", "Mr. John@gmail.com",
+        getCompanies().add(new Company("Company45623", "This is the first demo company", "Mr. John@gmail.com",
                 new ArrayList<Task>(Arrays.asList(new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the first task.",
                         "Task number 1"),new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the second task.",
                         "Task number 2")))));
@@ -68,11 +87,12 @@ public class FirebaseDB {
         mDatabase.child("companies").setValue(getCompanies());
     }
 
-    public ArrayList<Company> getCompanies() {
+    public static ArrayList<Company> getCompanies() {
         return companies;
     }
 
-    public void setCompanies(ArrayList<Company> companies) {
-        this.companies = companies;
+    public static void setCompanies(ArrayList<Company> newComps) {
+        companies = newComps;
+        System.out.println("called set companies with "+companies.toString());
     }
 }
