@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="So what are you good at?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/programming_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:text="Programming" />
+
+                <CheckBox
+                    android:id="@+id/digital_marketing_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/programming_id"
+                    android:layout_below="@+id/programming_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Digital Marketing" />
+
+                <CheckBox
+                    android:id="@+id/graphic_design_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/digital_marketing_id"
+                    android:layout_below="@+id/digital_marketing_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Graphic Design" />
+
+                <CheckBox
+                    android:id="@+id/writing_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/graphic_design_id"
+                    android:layout_below="@+id/graphic_design_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Writing" />
+
+                <CheckBox
+                    android:id="@+id/branding_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/writing_id"
+                    android:layout_below="@+id/writing_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Branding" />
+
+                <CheckBox
+                    android:id="@+id/market_research_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/branding_id"
+                    android:layout_below="@+id/branding_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Market Research" />
+
+                <CheckBox
+                    android:id="@+id/other_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/market_research_id"
+                    android:layout_below="@+id/market_research_id"
+                    android:layout_marginBottom="20dp"
+                    android:text="Other" />
+
+                <EditText
+                    android:id="@+id/other_field_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/other_id"
+                    android:layout_toEndOf="@+id/other_id"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="3dp"
+            android:text="Set up profile" />
+    </RelativeLayout>
+
+</RelativeLayout>
