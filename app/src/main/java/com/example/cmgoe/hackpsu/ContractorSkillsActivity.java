@@ -8,5 +8,9 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class ContractorSkillsActivity extends AppCompatActivity {
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.contractor_profile_skills);
+    }
 }
