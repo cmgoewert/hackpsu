@@ -30,15 +30,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/bar_layout"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="26">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:id="@+id/profile_layout"
                 android:background="@drawable/layout_bg"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
+                android:layout_weight="8"
                 android:gravity="top"
                 >
 
@@ -75,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
+
                     android:layout_below="@+id/business_description"
                     android:text="Generated Tags:" />
 
@@ -88,12 +90,19 @@
                     android:gravity="right"
                     android:text="TextView" />
 
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/business_tags" />
+
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
+                android:layout_height="0dp"
+                android:layout_weight="16"
                 android:gravity="top">
 
                 <TextView
@@ -113,17 +122,48 @@
                     android:id="@+id/tasks_list_view"
                     android:layout_below="@+id/tasks_label"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="60dp"></ListView>
+                    android:layout_height="wrap_content"></ListView>
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_height="0dp"
+                android:layout_weight="2"
                 android:gravity="bottom"
-                android:orientation="horizontal"></RelativeLayout>
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="40dp"
+                    android:text="Browse Users" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_toEndOf="@+id/button4"
+                    android:text="Messaging" />
+
+                <Button
+                    android:id="@+id/edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/button5"
+                    android:text="Edit Company Info" />
+            </RelativeLayout>
 
         </LinearLayout>
 
