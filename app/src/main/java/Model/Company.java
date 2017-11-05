@@ -16,7 +16,8 @@ public class Company {
 
     }
 
-    public Company (String name, String description, String contact) {
+    public Company (String name, String description, String contact, ArrayList<Task> tasks) {
+        this.setTasks(tasks);
         this.setName(name);
         this.setDescription(description);
         this.setContact(contact);

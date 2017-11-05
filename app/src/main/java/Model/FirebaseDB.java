@@ -7,6 +7,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by cmgoe on 11/4/2017.
@@ -49,8 +50,14 @@ public class FirebaseDB {
 
     public void createDummyData(){
         setCompanies(new ArrayList<Company>());
-        getCompanies().add(new Company("Company1", "This is the first demo company", "Mr. John@gmail.com"));
-        getCompanies().add(new Company("Company2", "This is the second demo company", "Mr. Joe@gmail.com"));
+        getCompanies().add(new Company("Company1", "This is the first demo company", "Mr. John@gmail.com",
+                new ArrayList<Task>(Arrays.asList(new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the first task.",
+                        "Task number 1"),new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the second task.",
+                        "Task number 2")))));
+        getCompanies().add(new Company("Company2", "This is the second demo company", "Mr. Joe@gmail.com",
+                new ArrayList<Task>(Arrays.asList(new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the first task.",
+                        "Task number 1"),new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the second task.",
+                        "Task number 2")))));
         mDatabase.child("companies").setValue(getCompanies());
     }
 
