@@ -107,8 +107,22 @@ public class SignInActivity extends AppCompatActivity implements
     // [END onactivityresult]
 
     public void getMainMenu(FirebaseUser user){
+
         Intent intent = new Intent();
-        intent.setClass(this, MainMenuActivity.class);
+        switch (user.getUid()){
+            case "IjzkqyHTtYW18flc9f0otjAvgqw1":
+                intent.setClass(this, BusinessSetupActivity.class);
+                System.out.println("victors activity");
+                break;
+            case "jSSatxHWtXPayR3AtcHpwC2NumA3":
+                intent.setClass(this, MainMenuActivity.class);
+                System.out.println("chandlers activity");
+                break;
+            case "p0mrQP1K4lVf0zZh9w3FF3zoCYY2":
+                intent.setClass(this, ContractorSkillsActivity.class);
+                System.out.println("lukes activity");
+                break;
+        }
         intent.putExtra("user", user.getUid());
         startActivity(intent);
     }
@@ -126,6 +140,7 @@ public class SignInActivity extends AppCompatActivity implements
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            System.out.println("was successful");
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
@@ -146,6 +161,34 @@ public class SignInActivity extends AppCompatActivity implements
                 });
     }
     // [END auth_with_google]
+
+    private void signInAnonymously() {
+
+        // [START signin_anonymously]
+        mAuth.signInAnonymously()
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInAnonymously:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInAnonymously:failure", task.getException());
+                            Toast.makeText(SignInActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // [START_EXCLUDE]
+
+                        // [END_EXCLUDE]
+                    }
+                });
+        // [END signin_anonymously]
+    }
 
     // [START signin]
     private void signIn() {
