@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import Model.Company;
 import Model.FirebaseDB;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity implements View.OnClickListener{
     private Toolbar mActionBarToolbar;
     private TextView infoLabel, titleLabel, descLabel,tagsLabel,actualTagsLabel;
     private ListView mListView;
@@ -59,8 +59,18 @@ public class MainMenuActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
         //mListView.setOnItemClickListener(this);
 
+        findViewById(R.id.edit_profile).setOnClickListener(this);
+
         //database.createDummyData();
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.edit_profile) {
+
+        }
     }
 
 }

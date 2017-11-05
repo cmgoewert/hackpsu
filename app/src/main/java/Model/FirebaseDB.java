@@ -58,6 +58,13 @@ public class FirebaseDB {
                 new ArrayList<Task>(Arrays.asList(new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the first task.",
                         "Task number 1"),new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the second task.",
                         "Task number 2")))));
+        ArrayList<Task> tasks = new ArrayList<>();
+        for(int i = 0; i < 30; i ++){
+            tasks.add(new Task(new ArrayList<String>(Arrays.asList("tag1","tag2","tag3")),"Here is a short description of the "+i+" task.",
+                    "Task number "+i));
+        }
+        getCompanies().get(0).setTasks(tasks);
+
         mDatabase.child("companies").setValue(getCompanies());
     }
 
