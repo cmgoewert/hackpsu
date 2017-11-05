@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorTanPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
             android:text="So what are you good at?"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
@@ -37,6 +39,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Programming" />
 
                 <CheckBox
@@ -46,6 +50,8 @@
                     android:layout_alignStart="@+id/programming_id"
                     android:layout_below="@+id/programming_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Digital Marketing" />
 
                 <CheckBox
@@ -55,6 +61,8 @@
                     android:layout_alignStart="@+id/digital_marketing_id"
                     android:layout_below="@+id/digital_marketing_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Graphic Design" />
 
                 <CheckBox
@@ -64,6 +72,8 @@
                     android:layout_alignStart="@+id/graphic_design_id"
                     android:layout_below="@+id/graphic_design_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Writing" />
 
                 <CheckBox
@@ -73,6 +83,8 @@
                     android:layout_alignStart="@+id/writing_id"
                     android:layout_below="@+id/writing_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Branding" />
 
                 <CheckBox
@@ -82,6 +94,8 @@
                     android:layout_alignStart="@+id/branding_id"
                     android:layout_below="@+id/branding_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Market Research" />
 
                 <CheckBox
@@ -91,6 +105,8 @@
                     android:layout_alignStart="@id/market_research_id"
                     android:layout_below="@+id/market_research_id"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand"
                     android:text="Other" />
 
                 <EditText
@@ -100,6 +116,7 @@
                     android:layout_alignBottom="@+id/other_id"
                     android:layout_toEndOf="@+id/other_id"
                     android:ems="10"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="textPersonName"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -111,6 +128,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <Button
@@ -119,7 +138,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="3dp"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/quicksand"
             android:text="Set up profile" />
     </RelativeLayout>
 
