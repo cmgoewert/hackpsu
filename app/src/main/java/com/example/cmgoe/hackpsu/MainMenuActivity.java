@@ -1,5 +1,6 @@
 package com.example.cmgoe.hackpsu;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,14 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         FirebaseDB database = new FirebaseDB();
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                ArrayList<String> concepts = WatsonInteraction.send("random descrption");
+                System.out.println(concepts.toString());
+            }
+        });
 
         ArrayList<Company> companies = database.read();
         System.out.println(companies.get(0).getDescription());
