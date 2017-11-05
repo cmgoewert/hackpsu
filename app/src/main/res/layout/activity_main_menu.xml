@@ -46,7 +46,9 @@
                     android:id="@+id/main_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your company info:" />
+                    android:text="Your company info:"
+                    android:paddingTop="16dp"
+                    android:paddingLeft="16dp"/>
 
                 <TextView
                     android:id="@+id/business_title"
@@ -71,7 +73,7 @@
                     android:id="@+id/tags_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_below="@+id/business_description"
                     android:text="Generated Tags:" />
@@ -92,7 +94,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
-                android:gravity="center">
+                android:gravity="top">
+
+                <TextView
+                    android:id="@+id/tasks_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:text="Here are the tasks currently listed for your business:" />
+
+
+
+                <ListView
+                    android:id="@+id/tasks_list_view"
+                    android:layout_below="@+id/tasks_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="60dp"></ListView>
 
             </RelativeLayout>
 

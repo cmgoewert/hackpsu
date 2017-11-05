@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import Model.FirebaseDB;
 public class MainMenuActivity extends AppCompatActivity {
     private Toolbar mActionBarToolbar;
     private TextView infoLabel, titleLabel, descLabel,tagsLabel,actualTagsLabel;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
         actualTagsLabel = (TextView)findViewById(R.id.business_tags);
         actualTagsLabel.setText("3D Printing, Sample tags, Hacking!");
+
+        mListView = (ListView) findViewById(R.id.tasks_list_view);
+        TaskListAdapter adapter = new TaskListAdapter(this, companies.get(0).getTasks());
+        mListView.setAdapter(adapter);
+        //mListView.setOnItemClickListener(this);
 
         //database.createDummyData();
 
